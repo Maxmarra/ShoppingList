@@ -10,28 +10,25 @@ import com.example.shoppinglist.domain.ShopItem
 
 class MainViewModel : ViewModel() {
 
+    //это временный костыль
+    //в presentation ничего не должно быть из data!!!
+    //в дальнейшем будет изучена инъекция
     private val repository = ShopListRepositoryImpl
 
     private val getShopListUseCase = GetShopListUseCase(repository)
     private val deleteShopItemUseCase = DeleteShopItemUseCase(repository)
     private val editShopItemUseCase = EditShopItemUseCase(repository)
 
-    val shopList = MutableLiveData<List<ShopItem>>()
-
-    fun getShopList() {
-        val list = getShopListUseCase.getShopList()
-        shopList.value = list
-    }
+    val shopList = getShopListUseCase.getShopList()
 
     fun deleteShopItem(shopItem: ShopItem) {
         deleteShopItemUseCase.deleteShopItem(shopItem)
-        getShopList()
     }
 
-    fun changeEnableState(shopItem: ShopItem){
+    fun changeEnableState(shopItem: ShopItem) {
         val newItem = shopItem.copy(enabled = !shopItem.enabled)
         editShopItemUseCase.editShopItem(newItem)
-        getShopList()
+
     }
 
 }
