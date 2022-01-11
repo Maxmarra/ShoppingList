@@ -8,10 +8,6 @@ import java.lang.RuntimeException
 
 object ShopListRepositoryImpl : ShopListRepository {
 
-    /** будет прокладкой между реальным списком и выводом
-     * через него данные будут обновлятся во всем списке
-     * при вызове списка данные будут приходить отсюда
-     * предварительно они будут сохранены сюда из shopList */
     private val shopListLD = MutableLiveData<List<ShopItem>>()
 
     private val shopList = mutableListOf<ShopItem>()
