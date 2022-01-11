@@ -10,7 +10,7 @@ import com.example.shoppinglist.domain.ShopItem
 
 class MainViewModel : ViewModel() {
 
-    //это временный костыль
+    //это временный костыль0
     //в presentation ничего не должно быть из data!!!
     //в дальнейшем будет изучена инъекция
     private val repository = ShopListRepositoryImpl
