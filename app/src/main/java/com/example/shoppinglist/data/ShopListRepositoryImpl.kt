@@ -28,7 +28,6 @@ object ShopListRepositoryImpl : ShopListRepository {
         if (shopItem.id == ShopItem.UNDEFINED_ID) {
             shopItem.id = autoIncrementId++
         }
-
         shopList.add(shopItem)
         updateList()
     }
